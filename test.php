@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "user_progress";
+$password = "192837465.Aa";
  
 // 创建连接
 $conn = new mysqli($servername, $username, $password);
