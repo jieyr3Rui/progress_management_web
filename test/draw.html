@@ -8,15 +8,17 @@
 </style>
 </head>
  
+
 <body>
-    <canvas id="canvas" width=300 height=30 ></canvas>
-    <button onclick="addw();" >add w</button>
+    <button onclick="relw();" >-1</button>
+    <canvas id="canvas" width=400 height=30 ></canvas>
+    <button onclick="addw();" >+1</button>
 </body>
 
 <script>
     var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
-	var x = 10, y = 10, w = 10, h = 10;
+	var x = 10, y = 5, w = 10, h = 20;
 	
 	run("red");
 	
@@ -30,12 +32,18 @@
 	// 清除画布
 	function clears(){
 		ctx.beginPath();
-		ctx.clearRect(0, 0, 500, 500);
+		ctx.clearRect(0, 0, 400, 30);
 		ctx.closePath();
 	}
 	function addw(){
 		w = w + 10;
 		run("red");
 	}
+        function relw(){
+                if(w > 10){
+                     w = w - 10; 
+                     run("red");
+        }
+        }
 </script>
 </html>
