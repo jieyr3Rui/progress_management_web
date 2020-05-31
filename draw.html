@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+    canvas{border:1px solid;}
+</style>
+</head>
+ 
+<body>
+    <canvas id="canvas" width=300 height=30 ></canvas>
+    <button onclick="addw();" >add w</button>
+</body>
+
+<script>
+    var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	var x = 10, y = 10, w = 10, h = 10;
+	
+	run("red");
+	
+	// 生成矩阵
+	function run(color){
+		clears();
+		ctx.fillStyle = color;
+		ctx.fillRect(x, y, w, h);
+
+	}
+	// 清除画布
+	function clears(){
+		ctx.beginPath();
+		ctx.clearRect(0, 0, 500, 500);
+		ctx.closePath();
+	}
+	function addw(){
+		w = w + 10;
+		run("red");
+	}
+</script>
+</html>
