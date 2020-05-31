@@ -14,8 +14,5 @@
     if($conn->connect_error){
         die("failure conection：".$conn->connect_error);
     }
-    else{
-        echo "<script>alert('successful connection')";
-    }
     $conn->query("set names utf8");
 ?>
