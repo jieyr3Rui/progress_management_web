@@ -5,10 +5,10 @@
     $sql="INSERT INTO 'user_table'('name', 'pass') VALUES ('$name', '$pass')";
     $re=mysqli_query($conn, $sql);
     if($re){
-        echo "<script>alert('注册成功');location.href='login.html'</script>";    
+        echo "<script>alert('successful registion');location.href='login.html'</script>";    
     }
     else{
-        echo "<script>alert('注册失败');location.href='regist.html'</script>";    
+        echo "<script>alert('failure registion');location.href='regist.html'</script>";    
     }
 
 ?>
