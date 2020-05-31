@@ -7,7 +7,7 @@
 
     $db_password = "192837465.Aa";
 
-    $db_name = "mysql";
+    $db_name = "database_progress";
 
     $conn = new mysqli($servername, $db_username, $db_password, $db_name);
 
