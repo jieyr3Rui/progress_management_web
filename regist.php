@@ -8,7 +8,7 @@
         echo "<script>alert('注册成功');location.href='login.html'</script>";    
     }
     else{
-        echo "<script>alert('注册成功');location.href='regist.html'</script>";    
+        echo "<script>alert('注册失败');location.href='regist.html'</script>";    
     }
 
 ?>
