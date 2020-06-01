@@ -12,7 +12,7 @@
     else{
         while($date=mysqli_fetch_assoc($re)){
             if($date['name']==$uname&&$date['pass']==$pass){
-                echo "<script>alert('seccessful login');location.href='main.html'</script>";
+                echo "<script>alert('seccessful login');location.href='main.html?uname='+$uname</script>";
             }
             else{
                 echo "<script>alert('incorrect password');location.href='login.html'</script>";
