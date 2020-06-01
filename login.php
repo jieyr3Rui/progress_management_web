@@ -4,6 +4,7 @@
     $pass=$_REQUEST["pass"];
     $sql="SELECT name, pass FROM database_progress WHERE name='$uname'";
     $re=mysqli_query($conn, $sql);
+    echo $sql;
     $n=mysqli_num_rows($re);
     if(!$n){
         echo "<script>alert('username does not exit');location.href='login.html'</script>";
