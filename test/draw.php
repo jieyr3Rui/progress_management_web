@@ -81,6 +81,7 @@ function op_width(){
 		ctx.closePath();
 	}
 	function addw(){
+        alert("addw");
         <?php op_width();?>
 		w = <?php echo $width?>;
         alert("<?php echo $width?>");
