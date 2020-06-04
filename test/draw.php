@@ -34,7 +34,7 @@ function op_width($op){
         if($w >= 10) {$w = $w - 10;}
     }
     $GLOBALS['width'] = $w;
-    $sql="UPDATE table_width SET width=". $w ." WHERE pid='1234'";
+    $sql="UPDATE table_width SET width=". (strval)$w ." WHERE pid='1234'";
     $conn->query($sql);
 
     $conn->close();
