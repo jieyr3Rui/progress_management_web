@@ -1,8 +1,4 @@
 <?php
-$width = 10;
-?>
-
-<?php
 function add_width(){
     $GLOBALS['width'] = $GLOBALS['width'] + 10;
 }
