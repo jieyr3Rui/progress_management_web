@@ -9,12 +9,15 @@ function op_width($op){
 
     // 创建连接
     $conn = new mysqli($servername, $username, $password, $dbname);
+    
     // Check connection
     if ($conn->connect_error) {
         die("连接失败: " . $conn->connect_error);
     } 
-    
-    $sql = "SELECT width FROM table_width WHERE pid = '1234'";
+    else{
+        echo "successful";
+    }
+    $sql = "SELECT width FROM table_width WHERE pid='1234'";
     $result = $conn->query($sql);
     
     if ($result->num_rows > 0) {
@@ -25,10 +28,10 @@ function op_width($op){
     }
     
     if($op='add'){
-        if($w <= 90) $w = $w + 10;
+        if($w <= 90) {$w = $w + 10;}
     }
     if($op='rel'){
-        if($w >= 10) $w = $w - 10;
+        if($w >= 10) {$w = $w - 10;}
     }
     $GLOBALS['width'] = $w;
     $sql="UPDATE table_width SET width=". $w ." WHERE pid='1234'";
