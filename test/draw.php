@@ -8,16 +8,17 @@ $w = 10;
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password, $dbname);
-
 // Check connection
 if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 } 
+
 function op_width(){
     $GLOBALS['width']+=10;
 
+
     $sql = "SELECT width FROM table_width WHERE pid='1234'";
-    $result = $conn->query($sql);
+    $result = $GLOBALS['conn']->query($sql);
     
     // if ($result->num_rows > 0) {
     //     // 输出数据
