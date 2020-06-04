@@ -1,45 +1,44 @@
 <?php
 $width = 10;
 function op_width(){
-    $GLOBALS['width'] += 10;
-    // $servername = "localhost";
-    // $username = "user_progress";
-    // $password = "192837465.Aa";
-    // $dbname = "database_progress";
-    // $w = 10;
+    $servername = "localhost";
+    $username = "user_progress";
+    $password = "192837465.Aa";
+    $dbname = "database_progress";
+    $w = 10;
 
-    // // 创建连接
-    // $conn = new mysqli($servername, $username, $password, $dbname);
+    // 创建连接
+    $conn = new mysqli($servername, $username, $password, $dbname);
     
-    // // Check connection
-    // if ($conn->connect_error) {
-    //     die("连接失败: " . $conn->connect_error);
-    // } 
-    // else{
-    //     echo "successful";
-    // }
-    // $sql = "SELECT width FROM table_width WHERE pid='1234'";
-    // $result = $conn->query($sql);
+    // Check connection
+    if ($conn->connect_error) {
+        die("连接失败: " . $conn->connect_error);
+    } 
+    else{
+        echo "successful";
+    }
+    $sql = "SELECT width FROM table_width WHERE pid='1234'";
+    $result = $conn->query($sql);
     
-    // if ($result->num_rows > 0) {
-    //     // 输出数据
-    //     while($row = $result->fetch_assoc()) {
-    //         $w = $row['width'];
-    //     }
-    // }
+    if ($result->num_rows > 0) {
+        // 输出数据
+        while($row = $result->fetch_assoc()) {
+            $w = $row['width'];
+        }
+    }
     
-    // if($op=='add'){
-    //     if($w <= 90) {$w = $w + 10;}
-    // }
-    // if($op=='rel'){
-    //     if($w >= 10) {$w = $w - 10;}
-    // }
-    // $GLOBALS['width'] = $w;
-    // $ws = (strval)$w;
-    // $sql="UPDATE table_width SET width=" . $ws . " WHERE pid='1234'";
-    // $conn->query($sql);
+    if($op=='add'){
+        if($w <= 90) {$w = $w + 10;}
+    }
+    if($op=='rel'){
+        if($w >= 10) {$w = $w - 10;}
+    }
+    $GLOBALS['width'] = $w;
+    $ws = (strval)$w;
+    $sql="UPDATE table_width SET width=" . $ws . " WHERE pid='1234'";
+    $conn->query($sql);
 
-    // $conn->close();
+    $conn->close();
 }
 ?>
 
@@ -64,7 +63,7 @@ function op_width(){
     var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
 	var x = 10, y = 5, w = 10, h = 20;
-	alert("running");
+
 	run("red");
 	
 	// 生成矩阵
@@ -81,8 +80,10 @@ function op_width(){
 		ctx.closePath();
 	}
 	function addw(){
-
-        w = w + 10;
+        alert("addw");
+        <?php op_width();?>
+		w = <?php echo $width?>;
+        alert("<?php echo $width?>");
 		run("red");
 	}
     function relw(){
