@@ -77,7 +77,7 @@ function op_width($op){
 	}
 	function addw(){
         alert("addw");
-        <?php op_width('rel');?>
+        alert("<?php op_width('rel');?>");
 		w = <?php echo $width?>;
         alert("<?php echo $width?>");
 		run("red");
