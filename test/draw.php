@@ -1,6 +1,6 @@
 <?php
 $width = 10;
-function op_width($op){
+function op_width(){
     $GLOBALS['width'] += 10;
     // $servername = "localhost";
     // $username = "user_progress";
@@ -82,7 +82,7 @@ function op_width($op){
 	}
 	function addw(){
         alert("addw");
-        <?php op_width('add');?>
+        <?php op_width();?>
 		w = <?php echo $width?>;
         alert("<?php echo $width?>");
 		run("red");
