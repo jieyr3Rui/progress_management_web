@@ -91,6 +91,6 @@ function op_width(){
              run("red");
     	}
     }
-    }
+    
 </script>
 </html>
