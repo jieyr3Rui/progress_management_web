@@ -20,12 +20,12 @@ function op_width(){
     $sql = "SELECT width FROM table_width WHERE pid='1234'";
     $result = $conn->query($sql);
     
-    // if ($result->num_rows > 0) {
-    //     // 输出数据
-    //     while($row = $result->fetch_assoc()) {
-    //         $w = $row['width'];
-    //     }
-    // }
+    if ($result->num_rows > 0) {
+        // 输出数据
+        while($row = $result->fetch_assoc()) {
+            $w = $row['width'];
+        }
+    }
     
     // if($op=='add'){
     //     if($w <= 90) {$w = $w + 10;}
