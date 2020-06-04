@@ -6,9 +6,6 @@ function add_width(){
 ?>
 
 
-
-
-
 <html>
 	
 <head>
@@ -47,7 +44,7 @@ function add_width(){
 	}
 	function addw(){
         <?php add_width();?>
-		w = <?php echo $width>;
+		w = <?php echo $width?>;
 		run("red");
 	}
     function relw(){
