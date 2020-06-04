@@ -45,6 +45,7 @@ function add_width(){
 	function addw(){
         <?php add_width();?>
 		w = <?php echo $width?>;
+        alert("<?php echo $width?>");
 		run("red");
 	}
     function relw(){
