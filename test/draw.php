@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+$width = 10;
+function add_width(){
+    $GLOBALS['width'] = $GLOBALS['width'] + 10;
+}
+?>
+
+
+
+
+
 <html>
 	
 <head>
@@ -36,7 +46,8 @@
 		ctx.closePath();
 	}
 	function addw(){
-		w = w + 10;
+        <?php add_width();?>
+		w = <?php echo $width>;
 		run("red");
 	}
     function relw(){
