@@ -13,14 +13,11 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 } 
-else{
-    echo "successful";
-}
 function op_width(){
     $GLOBALS['width']+=10;
 
-    // $sql = "SELECT width FROM table_width WHERE pid='1234'";
-    // $result = $conn->query($sql);
+    $sql = "SELECT width FROM table_width WHERE pid='1234'";
+    $result = $conn->query($sql);
     
     // if ($result->num_rows > 0) {
     //     // 输出数据
