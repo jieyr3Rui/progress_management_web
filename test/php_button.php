@@ -16,7 +16,7 @@ function show(){
     <input type="button" name="show" id="show" value="提交" onClick="bt_click();"/>
     <script>
         function bt_click(){
-        <?php show();?>
+            alert("<?php show();?>");
         }
     </script>
 </body>
