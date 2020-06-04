@@ -1,24 +1,24 @@
 <?php
 $width = 10;
-$servername = "localhost";
-$username = "user_progress";
-$password = "192837465.Aa";
-$dbname = "database_progress";
-$w = 10;
 
-// 创建连接
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-    die("连接失败: " . $conn->connect_error);
-} 
 
 function op_width(){
     $GLOBALS['width']+=10;
+    $servername = "localhost";
+    $username = "user_progress";
+    $password = "192837465.Aa";
+    $dbname = "database_progress";
+    $w = 10;
 
+    // 创建连接
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    // Check connection
+    if ($conn->connect_error) {
+        die("连接失败: " . $conn->connect_error);
+    } 
 
     $sql = "SELECT width FROM table_width WHERE pid='1234'";
-    $result = $GLOBALS['conn']->query($sql);
+    $result = $conn->query($sql);
     
     // if ($result->num_rows > 0) {
     //     // 输出数据
