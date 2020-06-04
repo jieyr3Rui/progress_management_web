@@ -64,7 +64,7 @@ function op_width(){
     var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
 	var x = 10, y = 5, w = 10, h = 20;
-	
+	alert("running");
 	run("red");
 	
 	// 生成矩阵
