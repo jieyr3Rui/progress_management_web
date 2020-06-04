@@ -1,24 +1,22 @@
 <?php
 $width = 10;
-
+$GLOBALS['width']+=10;
+$servername = "localhost";
+$username = "user_progress";
+$password = "192837465.Aa";
+$dbname = "database_progress";
+// 创建连接
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("failure connection: " . $conn->connect_error);
+} 
 
 function op_width($op){
-    $GLOBALS['width']+=10;
-    $servername = "localhost";
-    $username = "user_progress";
-    $password = "192837465.Aa";
-    $dbname = "database_progress";
     $w = 10;
 
-    // 创建连接
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("failure connection: " . $conn->connect_error);
-    } 
-
     $sql = "SELECT width FROM table_width WHERE pid='1234'";
-    $result = $conn->query($sql);
+    $result = $GLOBALS['conn']->query($sql);
     
     if ($result->num_rows > 0) {
         // 输出数据
@@ -36,9 +34,7 @@ function op_width($op){
     $GLOBALS['width'] = $w;
     $ws = strval($w);
     $sql="UPDATE table_width SET width=" . $ws . " WHERE pid='1234'";
-    $conn->query($sql);
-
-    $conn->close();
+    $GLOBALS['conn']->query($sql);
 }
 ?>
 
@@ -81,7 +77,7 @@ function op_width($op){
 	}
 	function addw(){
         alert("addw");
-        <?php op_width('add');?>
+        <?php op_width('rel');?>
 		w = <?php echo $width?>;
         alert("<?php echo $width?>");
 		run("red");
