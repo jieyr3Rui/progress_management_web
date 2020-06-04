@@ -35,7 +35,7 @@
         <script type="text/javascript" language="javascript">  
             function fun(n) {  
                 $.ajax({  
-                    url:"server.php",           //the page containing php script  
+                    url:"ajax_server.php",           //the page containing php script  
                     type: "POST",               //request type  
                     data:{action: n.value},  
                     success:function(result){  
@@ -45,7 +45,7 @@
             }  
               
             function fun2(n) {  
-                var url = "server.php";  
+                var url = "ajax_server.php";  
                 var data = {  
                     action : n.value  
                 };  
