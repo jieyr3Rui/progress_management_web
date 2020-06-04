@@ -27,10 +27,10 @@ function op_width($op){
         }
     }
     
-    if($op='add'){
+    if($op=='add'){
         if($w <= 90) {$w = $w + 10;}
     }
-    if($op='rel'){
+    if($op=='rel'){
         if($w >= 10) {$w = $w - 10;}
     }
     $GLOBALS['width'] = $w;
