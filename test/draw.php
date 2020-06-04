@@ -27,12 +27,12 @@ function op_width(){
         }
     }
     
-    // if($op=='add'){
-    //     if($w <= 90) {$w = $w + 10;}
-    // }
-    // if($op=='rel'){
-    //     if($w >= 10) {$w = $w - 10;}
-    // }
+    if($op=='add'){
+        if($w <= 90) {$w = $w + 10;}
+    }
+    if($op=='rel'){
+        if($w >= 10) {$w = $w - 10;}
+    }
     // $GLOBALS['width'] = $w;
     // $ws = (strval)$w;
     // $sql="UPDATE table_width SET width=" . $ws . " WHERE pid='1234'";
