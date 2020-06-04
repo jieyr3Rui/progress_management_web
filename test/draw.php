@@ -2,22 +2,22 @@
 $width = 10;
 function op_width(){
     $GLOBALS['width']+=10;
-    // $servername = "localhost";
-    // $username = "user_progress";
-    // $password = "192837465.Aa";
-    // $dbname = "database_progress";
-    // $w = 10;
+    $servername = "localhost";
+    $username = "user_progress";
+    $password = "192837465.Aa";
+    $dbname = "database_progress";
+    $w = 10;
 
-    // // 创建连接
-    // $conn = new mysqli($servername, $username, $password, $dbname);
+    // 创建连接
+    $conn = new mysqli($servername, $username, $password, $dbname);
     
-    // // Check connection
-    // if ($conn->connect_error) {
-    //     die("连接失败: " . $conn->connect_error);
-    // } 
-    // else{
-    //     echo "successful";
-    // }
+    // Check connection
+    if ($conn->connect_error) {
+        die("连接失败: " . $conn->connect_error);
+    } 
+    else{
+        echo "successful";
+    }
     // $sql = "SELECT width FROM table_width WHERE pid='1234'";
     // $result = $conn->query($sql);
     
@@ -81,7 +81,6 @@ function op_width(){
 		ctx.closePath();
 	}
 	function addw(){
-        alert("addw");
         <?php op_width();?>
 		w = <?php echo $width?>;
         alert("<?php echo $width?>");
