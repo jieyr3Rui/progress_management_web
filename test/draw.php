@@ -14,31 +14,31 @@ function op_width(){
     $conn = new mysqli($servername, $username, $password, $dbname);
     // Check connection
     if ($conn->connect_error) {
-        die("连接失败: " . $conn->connect_error);
+        die("failure connection: " . $conn->connect_error);
     } 
 
     $sql = "SELECT width FROM table_width WHERE pid='1234'";
     $result = $conn->query($sql);
     
-    // if ($result->num_rows > 0) {
-    //     // 输出数据
-    //     while($row = $result->fetch_assoc()) {
-    //         $w = $row['width'];
-    //     }
-    // }
+    if ($result->num_rows > 0) {
+        // 输出数据
+        while($row = $result->fetch_assoc()) {
+            $w = $row['width'];
+        }
+    }
     
-    // if($op=='add'){
-    //     if($w <= 90) {$w = $w + 10;}
-    // }
-    // if($op=='rel'){
-    //     if($w >= 10) {$w = $w - 10;}
-    // }
-    // $GLOBALS['width'] = $w;
-    // $ws = (strval)$w;
-    // $sql="UPDATE table_width SET width=" . $ws . " WHERE pid='1234'";
-    // $conn->query($sql);
+    if($op=='add'){
+        if($w <= 90) {$w = $w + 10;}
+    }
+    if($op=='rel'){
+        if($w >= 10) {$w = $w - 10;}
+    }
+    $GLOBALS['width'] = $w;
+    $ws = (strval)$w;
+    $sql="UPDATE table_width SET width=" . $ws . " WHERE pid='1234'";
+    $conn->query($sql);
 
-    // $conn->close();
+    $conn->close();
 }
 ?>
 
