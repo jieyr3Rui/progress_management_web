@@ -11,7 +11,7 @@
 
 <body>
     <canvas id="canvas" width=400 height=30 ></canvas>
-    <button id="btn1">+10</button>
+    <button onclick="addw();">+10</button>
 </body>
 
 <script>
@@ -35,36 +35,35 @@
 		ctx.closePath();
 	}
 
-    $(function(){
-        $('#btn1').click(function(){
-            alert("btn1 f");
-            var width = strval(w);
-            var add = 10;
-            var adds = strval(add);
-            $.ajax({
-                type: "post",
-                url: 'ajax_draw.php',
-                async: false,
-                data:{
-                    width:width,
-                    add:adds
-                },
-                dataType: "json",
-                success:function(msg){
-                    if(msg!=''){
-                        var data='';
-                        data = eval("(" + msg + ")");
-                        w = intval(data.new_width);
-                        run("red");
-                    }
-                },
-                error:function(msg){
-                    console.log(msg);
+    function addw(){
+        alert("btn1 f");
+        var width = strval(w);
+        var add = 10;
+        var adds = strval(add);
+        $.ajax({
+            type: "post",
+            url: 'ajax_draw.php',
+            async: false,
+            data:{
+                width:width,
+                add:adds
+            },
+            dataType: "json",
+            success:function(msg){
+                if(msg!=''){
+                    var data='';
+                    data = eval("(" + msg + ")");
+                    w = intval(data.new_width);
+                    run("red");
                 }
-            });
-            alert("btn1 b");
+            },
+            error:function(msg){
+                console.log(msg);
+            }
         });
-    })
+        alert("btn1 b");
+    }
+    
 
 </script>
 </html>
