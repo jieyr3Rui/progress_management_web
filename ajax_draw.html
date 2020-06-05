@@ -62,7 +62,9 @@
                 data = eval("("+msg+")"); //将返回的json数据进行解析，并赋给data
             }
             $('#text').html("new_width: " + data.new_width); //在#text中输出
-            console.log(data); //控制台输出
+            w = parseInt(data.new_width);
+            run("red");
+            //console.log(data); //控制台输出
         },
         error:function(msg){
             console.log(msg);
