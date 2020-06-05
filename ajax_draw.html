@@ -11,7 +11,7 @@
 
 <body>
     <canvas id="canvas" width=400 height=30 ></canvas>
-    <input type="button" name="add" id="btn1" value="+10">
+    <button onclick="addw();" >+10</button>
     <input type="button" name="rel" id="btn2" value="-10">
 </body>
 
@@ -35,19 +35,8 @@
 		ctx.clearRect(0, 0, 400, 30);
 		ctx.closePath();
 	}
-	function addw(){
-		w = w + 10;
-		run("red");
-	}
-    function relw(){
-        if(w > 10){
-             w = w - 10; 
-             run("red");
-        }
-    }
 
-
-    $('#btn1').click(function(){
+    function addw(){
         alert("btn1click");
         $width = w;
         $add = 10;
@@ -69,6 +58,7 @@
             }
             
         });
-    });
+    }
+
 </script>
 </html>
