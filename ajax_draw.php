@@ -1,16 +1,11 @@
 <?php
-    header('Content-Type:application/json;charset=utf-8');
-    $result = array()
-    $json = file_get_contents("php://input");
-    $obj = json_decode($json);
-    $add = $obj->add;
-    $width = $obj->width;
+    header('Content-type:text/json;charset=utf-8');
+    $width = intvar($_POST['width']);
+    $add = intvar($_POST['add']);
     $total = $add + $width;
-    if($total < 100){
-        $result['new_width'] = $total;
+    if($total >= 100){
+        $total = 100;
     }
-    else{
-        $result['new_width'] = 100;
-    }
-    echo json_encode($result);
+    $data = '{new_width:"' . strval($total) . '"}'
+    echo json_encode($data);
 ?>
