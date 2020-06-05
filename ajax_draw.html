@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style>
+    canvas{border:1px solid;}
+</style>
+</head>
+ 
+
+<body>
+    <canvas id="canvas" width=400 height=30 ></canvas>
+    <input type="button" name="add" id="btn1" value="+10">
+    <input type="button" name="rel" id="btn2" value="-10">
+</body>
+
+<script>
+    var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	var x = 10, y = 5, w = 10, h = 20;
+	
+	run("red");
+	
+	// 生成矩阵
+	function run(color){
+		clears();
+		ctx.fillStyle = color;
+		ctx.fillRect(x, y, w, h);
+
+	}
+	// 清除画布
+	function clears(){
+		ctx.beginPath();
+		ctx.clearRect(0, 0, 400, 30);
+		ctx.closePath();
+	}
+	function addw(){
+		w = w + 10;
+		run("red");
+	}
+    function relw(){
+        if(w > 10){
+             w = w - 10; 
+             run("red");
+        }
+    }
+
+
+    $('#btn1').click(function(){
+        $width = w;
+        $add = 10;
+        $.ajax({
+            type: "post",
+            url: 'ajax_draw.php',
+            async: false,
+            data: JSON.stringify({
+                width:$width,
+                add:  $add
+            }),
+            dataType: "json",
+            success: function(data){
+                w = data.w;
+                run("red");
+            },
+            error: function(data){
+                alert('error');
+            }
+            
+        });
+    });
+</script>
+</html>
