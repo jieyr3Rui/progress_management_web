@@ -2,21 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        canvas{border: 1px solid;}
+    </style>
     <title>ajaxTest</title>
 </head>
 
 <body>
-    <button id="sub">查询</button>
-    <span id="text"></span><!-- 用以显示返回来的数据，只刷新这部分地方 -->
+    <canvas id="canvas" width=400 height=30></canvas>
+    <button id="add">+10</button>
+    <button id="rel">-10</button>
+    <span id="text"></span>
 </body>
 
 <script src="//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"></script>
 </html>
 
 <script>
+    var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+	var x = 10, y = 5, w = 50, h = 20;
+
+	run("red");
+	
+	// 生成矩阵
+	function run(color){
+		clears();
+		ctx.fillStyle = color;
+		ctx.fillRect(x, y, w, h);
+	}
+	// 清除画布
+	function clears(){
+		ctx.beginPath();
+		ctx.clearRect(0, 0, 400, 30);
+		ctx.closePath();
+	}
+
     $(function(){
-    $('#sub').click(function(){
-        var width = "10";
+
+    $('#rel').click(function(){
+        w = w - 10;
+        run("red");
+    });
+
+    $('#add').click(function(){
+        var width = "50";
         $.ajax({
         type: "post",
         url: "ajax_draw.php",
