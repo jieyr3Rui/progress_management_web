@@ -36,6 +36,8 @@
      var username=$('#username').val();
    
      var password=$('#password').val();
+
+     var width = "10";
    
      $.ajax({
    
@@ -43,7 +45,7 @@
    
      url: "ajax_draw.php",
    
-     data: {username:username,password:password}, //提交到demo.php的数据
+     data: {username:username,password:password,width:width}, //提交到demo.php的数据
    
      dataType: "json", //回调函数接收数据的数据格式
    
@@ -61,7 +63,7 @@
    
       }
    
-      $('#text').html("用户名为：" + data.username + ",密码为：" + data.password); //在#text中输出
+      $('#text').html("用户名为：" + data.username + ",密码为：" + data.password + "width: " + data.width); //在#text中输出
    
       console.log(data); //控制台输出
    
