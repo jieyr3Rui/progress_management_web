@@ -10,6 +10,12 @@
             $total = 100;
         }
     }
+    if($op == "rel"){
+        $total = $width - 10;
+        if($total <= 0){
+            $total = 0;
+        }
+    }
     $data='{new_width:"'. strval($total) . '"}';//组合成json格式数据
 
     echo json_encode($data);//输出json数据

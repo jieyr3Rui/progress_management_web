@@ -41,15 +41,8 @@
     $(function(){
 
     $('#rel').click(function(){
-        w = w - 10;
-        run("red");
-    });
-
-    $('#add').click(function(){
-        
         var width = w.toString();
-        var op = "add";
-        alert("add width");
+        var op = "rel";
         $.ajax({
         type: "post",
         url: "ajax_draw.php",
@@ -61,7 +54,33 @@
             if(msg!=''){
                 data = eval("("+msg+")"); //将返回的json数据进行解析，并赋给data
             }
-            $('#text').html("new_width: " + data.new_width); //在#text中输出
+            $('#text').html("-10 new_width: " + data.new_width); //在#text中输出
+            w = parseInt(data.new_width);
+            run("red");
+            //console.log(data); //控制台输出
+        },
+        error:function(msg){
+            console.log(msg);
+        }
+        });
+    });
+
+    $('#add').click(function(){
+        
+        var width = w.toString();
+        var op = "add";
+        $.ajax({
+        type: "post",
+        url: "ajax_draw.php",
+        data: {width:width,op:op}, //提交到demo.php的数据
+        dataType: "json", //回调函数接收数据的数据格式
+        success: function(msg){
+            $('#text').empty(); //清空Text里面的所有内容
+            var data='';
+            if(msg!=''){
+                data = eval("("+msg+")"); //将返回的json数据进行解析，并赋给data
+            }
+            $('#text').html("+10 new_width: " + data.new_width); //在#text中输出
             w = parseInt(data.new_width);
             run("red");
             //console.log(data); //控制台输出
