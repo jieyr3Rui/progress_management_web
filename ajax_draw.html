@@ -1,69 +1,82 @@
-<!DOCTYPE html>
-<html>
-	
+<!doctype html>
+
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style>
-    canvas{border:1px solid;}
-</style>
+
+ <meta charset="UTF-8">
+
+ <title>ajaxTest</title>
+
 </head>
- 
 
 <body>
-    <canvas id="canvas" width=400 height=30 ></canvas>
-    <button onclick="addw();">+10</button>
+
+ <input type="text" id="username">
+
+ <input type="text" id="password">
+
+ <button id="sub">查询</button>
+
+ <span id="text"></span><!-- 用以显示返回来的数据，只刷新这部分地方 -->
+
 </body>
 
-<script>
-    var canvas = document.getElementById("canvas");
-	var ctx = canvas.getContext("2d");
-	var x = 10, y = 5, w = 10, h = 20;
-	
-	run("red");
-	
-	// 生成矩阵
-	function run(color){
-		clears();
-		ctx.fillStyle = color;
-		ctx.fillRect(x, y, w, h);
+<script src="//cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js">
 
-	}
-	// 清除画布
-	function clears(){
-		ctx.beginPath();
-		ctx.clearRect(0, 0, 400, 30);
-		ctx.closePath();
-	}
+$(function(){
 
-    function addw(){
-        alert("btn1 f");
-        var width = strval(w);
-        var add = 10;
-        var adds = strval(add);
-        $.ajax({
-            type: "post",
-            url: 'ajax_draw.php',
-            async: false,
-            data:{
-                width:width,
-                add:adds
-            },
-            dataType: "json",
-            success:function(msg){
-                if(msg!=''){
-                    var data='';
-                    data = eval("(" + msg + ")");
-                    w = intval(data.new_width);
-                    run("red");
-                }
-            },
-            error:function(msg){
-                console.log(msg);
-            }
-        });
-        alert("btn1 b");
-    }
-    
+$('#sub').click(function(){
+
+ var username=$('#username').val();
+
+ var password=$('#password').val();
+
+ $.ajax({
+
+ type: "post",
+
+ url: "http://xxx/test/demo.php",
+
+ data: {username:username,password:password}, //提交到demo.php的数据
+
+ dataType: "json", //回调函数接收数据的数据格式
+
+
+
+ success: function(msg){
+
+  $('#text').empty(); //清空Text里面的所有内容
+
+  var data='';
+
+  if(msg!=''){
+
+  data = eval("("+msg+")"); //将返回的json数据进行解析，并赋给data
+
+  }
+
+  $('#text').html("用户名为：" + data.username + ",密码为：" + data.password); //在#text中输出
+
+  console.log(data); //控制台输出
+
+ },
+
+
+
+ error:function(msg){
+
+  console.log(msg);
+
+ }
+
+ });
+
+});
+
+})
 
 </script>
+
+
 </html>
