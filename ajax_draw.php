@@ -36,7 +36,12 @@ if($op == "rel"){
         $total = 0;
     }
 }
-
+if($op == "get"){
+    $total = $width;
+    if($total <= 0){
+        $total = 0;
+    }
+}
 $ws = strval($total);
 $sql="UPDATE table_width SET width=" . $ws . " WHERE pid='1234'";
 $conn->query($sql);
