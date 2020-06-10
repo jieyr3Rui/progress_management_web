@@ -41,12 +41,11 @@
     $(function(){
 
     $('#rel').click(function(){
-        var width = w.toString();
         var op = "rel";
         $.ajax({
         type: "post",
         url: "ajax_draw.php",
-        data: {width:width,op:op}, //提交到demo.php的数据
+        data: {op:op}, //提交到demo.php的数据
         dataType: "json", //回调函数接收数据的数据格式
         success: function(msg){
             $('#text').empty(); //清空Text里面的所有内容
@@ -66,13 +65,11 @@
     });
 
     $('#add').click(function(){
-        
-        var width = w.toString();
         var op = "add";
         $.ajax({
         type: "post",
         url: "ajax_draw.php",
-        data: {width:width,op:op}, //提交到demo.php的数据
+        data: {op:op}, //提交到demo.php的数据
         dataType: "json", //回调函数接收数据的数据格式
         success: function(msg){
             $('#text').empty(); //清空Text里面的所有内容
